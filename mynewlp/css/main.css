@@ -1,0 +1,237 @@
+body {
+    /*Default is pixel so we use relative*/
+    margin: 1.5em;
+    font-family: 'Poppins';
+}
+
+a{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.hero-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../images/shoes1.jpg');
+    background-size: cover;
+    background-position-x:20%;
+    background-position-y:20%;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    /*overflow: hidden;*/
+    animation: introLoad 2s forwards;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+}
+nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: white;
+    height: 100vh;
+    width: 50%;
+    z-index: 2;
+    text-transform: uppercase;
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
+}
+nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 8em;
+}
+nav > ul > li > a  {
+    color: black;
+    padding: .75em 2em;
+    display: block;
+
+    
+}
+nav > ul > li > a:hover  {
+    background: rgb(235, 235, 235);
+}
+nav > svg.close {
+    float: right;
+    margin: 1em;
+    width: 2em;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+}
+header > svg {
+    width: 2.3em;
+    margin-top: -.6em;
+    cursor: pointer;
+}
+h1{
+    font-size: 3rem;
+    margin-top: 2em;
+    line-height: 3.3rem;
+}
+
+.subhead {
+    font-size: 1.4rem;
+}
+section.hero {
+    color: white;
+    height: 90vh;
+    animation: moveDown 1s ease-in-out forwards;
+    opacity: 0;
+
+}
+section.hero > .down-arrow {
+    stroke: white;
+    position: absolute;
+    bottom: 2em;
+    width: 1em;
+    animation: moveArrow 1s alternate-reverse infinite;
+     
+}
+section.hero > .down-arrow > path {
+    fill: white;
+}
+.more-info > div > img {
+    width: 100%;
+    object-fit: cover;
+    height: 11em;
+}
+.more-info > div > div> p.title {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.more-info > div > div> p.desc {
+    line-height: 1.5rem;
+}
+nav.open-nav {
+    transform: translateX(0);
+}
+@media only screen and (min-width: 680px){
+    body {
+        margin: 1.5em 5em;
+        font-family: 'Poppins';
+    }
+}
+
+@media only screen and (min-width: 920px){
+    div.wrapper > header > svg.menu {
+        display: none;
+    }
+    div.wrapper > header > nav {
+        transform: translateX(0);
+        position: unset;
+        display: block;
+        width: auto;
+        height: auto;
+        background: none;
+    }
+    div.wrapper > header > nav > svg.close {
+        display: none;
+    }
+    div.wrapper > header > nav > ul {
+        display: flex;
+        margin: 0;
+    }
+    div.wrapper > header > nav > ul > li >a {
+        color: white;
+        padding: .5em 1.5em;
+        font-size: .9rem;
+
+    }
+    div.wrapper > header > nav > ul > li >a:hover {
+        background: none;
+        text-decoration: underline;
+    }
+    div.wrapper > header > a.logo {
+        color: black;
+    }
+    div.wrapper > header > a.logo > span {
+        color: red;
+    }
+    div.wrapper > section.hero {
+        color: black;
+        height: auto;
+        width: 40%;
+        margin-bottom: 11em;
+    }
+    div.wrapper > section.hero > svg {
+        stroke: black;
+        position: unset;
+    }
+    div.wrapper > section.hero > svg > path{
+        fill: black;
+    }
+    div.hero-img{
+        left: unset;
+        right: 0;
+        width: 50%;
+        height: 42em;
+    }
+    div.wrapper > section.more-info > div.feature{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        gap: 3em;
+        margin-bottom: 8em;
+    }
+    div.wrapper > section.more-info > div.feature > img{
+        width: 25em;
+    }
+    div.wrapper > section.more-info > div.feature > div.content{
+        text-align: right;
+        width: 25em;
+    }
+    div.wrapper > section.more-info > div.feature.left{
+        grid-template-areas: "left right";
+    }
+    div.wrapper > section.more-info > div.feature.left > img{
+        grid-area: left;
+    }
+    div.wrapper > section.more-info > div.feature.left > div.content{
+        text-align: left;
+        width: 25em;
+        justify-self: left;
+    }
+}
+@media only screen and (min-width: 1200px){
+    div.wrapper{
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    div.wrapper > section.more-info > div.feature{
+        gap: 0;
+    }
+}
+
+@keyframes introLoad {
+    from{
+        clip-path: polygon(0 0 , 100% 0, 100% 0, 0 0) ;
+    }
+    to {
+        clip-path: polygon(0 0 , 100% 0, 100% 100%, 0 100%) ;     
+    }
+}
+
+@keyframes moveArrow {
+    from{
+        transform: translateY(-30px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveDown {
+    from{
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
